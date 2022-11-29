@@ -13,6 +13,9 @@ services:
       # - '80:80'
       - '443:443'
       - '2222:22'
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
     volumes:
       - '/srv/gitlab/config:/etc/gitlab'
       - '/srv/gitlab/logs:/var/log/gitlab'
@@ -33,8 +36,18 @@ services:
       - "80:80"
     depends_on:
       - gitlab
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
     links:
       - gitlab
 volumes:
   runner-config:
   hidden:
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
