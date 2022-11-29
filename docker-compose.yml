@@ -34,3 +34,6 @@ services:
       - gitlab
     links:
       - gitlab
+volumes:
+  runner-config:
+  hidden:
