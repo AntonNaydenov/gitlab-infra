@@ -18,3 +18,19 @@ services:
       - '/srv/gitlab/logs:/var/log/gitlab'
       - '/srv/gitlab/data:/var/opt/gitlab'
     shm_size: '256m'
+  gitlab-runner:
+    image: 'gitlab/gitlab-runner:latest'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - runner-config:/etc/gitlab-runner
+    restart: unless-stopped
+  tor:
+    build: .
+    volumes:
+      - hidden:/var/lib/tor/hidden_service/
+    ports:
+      - "80:80"
+    depends_on:
+      - gitlab
+    links:
+      - gitlab
