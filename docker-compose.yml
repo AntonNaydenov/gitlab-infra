@@ -10,7 +10,7 @@ services:
         gitlab_rails['initial_root_password'] = 'bhMHcW3dkfcb'
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
-      # - '80:80'
+      - '80:80'
       # - '443:443'
       - '2222:22'
     networks:
