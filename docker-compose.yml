@@ -6,7 +6,7 @@ services:
     hostname: 'gitlab.example.com'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://gitlab.example.com'
+        #external_url 'https://gitlab.example.com'
         gitlab_rails['initial_root_password'] = 'bhMHcW3dkfcb'
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
