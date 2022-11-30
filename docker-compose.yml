@@ -11,7 +11,7 @@ services:
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
       # - '80:80'
-      - '443:443'
+      # - '443:443'
       - '2222:22'
     networks:
       vpcbr:
@@ -34,6 +34,7 @@ services:
       # - hidden:/var/lib/tor/hidden_service/
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - gitlab
     networks:
