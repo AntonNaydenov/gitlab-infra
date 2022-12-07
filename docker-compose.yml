@@ -8,11 +8,16 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         #external_url 'https://gitlab.example.com'
         gitlab_rails['initial_root_password'] = 'bhMHcW3dkfcb'
+        gitlab_rails['registry_enabled'] = true
+        gitlab_rails['registry_host'] = "${ipaddr}"
+        gitlab_rails['registry_port'] = "5005"
+        letsencrypt['enable'] = true
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '80:80'
       # - '443:443'
       - '2222:22'
+      - '5005:5005'
     networks:
       vpcbr:
         ipv4_address: 10.5.0.5
