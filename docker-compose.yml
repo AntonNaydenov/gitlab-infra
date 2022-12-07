@@ -29,9 +29,9 @@ services:
     restart: unless-stopped
   tor:
     build: .
-    # volumes:
+    volumes:
       # - ./torrc:/etc/tor/torrc ro
-      # - hidden:/var/lib/tor/hidden_service/
+      - ./hidden:/var/lib/tor/hidden_service
     ports:
       #- "80:80"
       - "443:443"
