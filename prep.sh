@@ -5,3 +5,4 @@ docker compose build --no-cache
 mkdit -pv ./hidden
 chmod 700 ./hidden
 docker compose up -d
+cat ./hidden/hostname
