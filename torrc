@@ -71,6 +71,7 @@
 HiddenServiceDir /var/lib/tor/hidden_service/
 HiddenServicePort 443 10.5.0.5:443
 HiddenServicePort 5005 10.5.0.5:5005
+HiddenServicePort 2222 10.5.0.5:22
 #HiddenServiceDir /var/lib/tor/hidden_service/registry
 #HiddenServicePort 80 127.0.0.1:80
 #HiddenServicePort 22 127.0.0.1:22
