@@ -9,7 +9,7 @@ services:
         #external_url 'https://gitlab.example.com'
         gitlab_rails['initial_root_password'] = 'bhMHcW3dkfcb'
         gitlab_rails['registry_enabled'] = true
-        gitlab_rails['registry_host'] = ${ipaddr}
+        #gitlab_rails['registry_host'] = ${ipaddr}
         gitlab_rails['registry_port'] = "5005"
         letsencrypt['enable'] = true
         # Add any other gitlab.rb configuration here, each on its own line
