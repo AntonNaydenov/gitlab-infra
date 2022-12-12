@@ -35,7 +35,7 @@ services:
   tor:
     build: .
     volumes:
-      - ./torrc:/etc/tor/torrc
+      - ./configs:/etc/tor
       - ./hidden:/var/lib/tor/hidden_service
     ports:
       #- "80:80"
