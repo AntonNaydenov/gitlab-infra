@@ -14,7 +14,7 @@ services:
         letsencrypt['enable'] = true
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
-      - '80:80'
+      # - '80:80'
       # - '443:443'
       # - '2222:22'
       # - '5005:5005'
@@ -33,20 +33,25 @@ services:
       - runner-config:/etc/gitlab-runner
     restart: unless-stopped
   tor:
-    build: .
+    build: ./tor
     volumes:
-      - ./configs:/etc/tor
-      - ./hidden:/var/lib/tor/hidden_service
+      - ./persistent:/persistent
     ports:
-      #- "80:80"
       - "443:443"
+      - "80:80"
       - "5005:5005"
-      - "2222:2222"
-    depends_on:
-      - gitlab
+    env_file:
+      - persistent/.env
     networks:
       vpcbr:
         ipv4_address: 10.5.0.6
+    depends_on:
+      - gitlab
+    healthcheck:
+      test: [ "CMD", 'tor', 'alive' ]
+      interval: 10s
+      timeout: 3s
+      retries: 4
     links:
       - gitlab
 volumes:
