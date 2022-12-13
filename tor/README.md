@@ -13,6 +13,7 @@
 
 ### Required ENV variables (persistent/.env file):
 * PROJECT - name of service. Used by mkp224o to generate address
+proj
 
 ### persistent/services file example
 ```
